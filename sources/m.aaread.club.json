@@ -1,0 +1,36 @@
+{
+    "name": "风情阅读",
+    "url": "m.aaread.club",
+    "version": 100,
+	
+    "search": {
+        "url": "https://m.aaread.club/search?kw=${key}",
+        "charset": "utf-8",
+		
+        "list": "#books-default",
+        "name": "h4",
+        "author": "#books-default > li > a > div > div.book-meta > div.book-meta-l > span",
+        "cover": "#books-default > li > a > img",
+        "summary": "#books-default > li > a > div > p",
+        "detail": "#books-default > li > a"
+    },
+	
+	"detail": {
+        "catalog": "body > div.page.page-book-end > div > div:nth-child(4) > a"
+    },
+	
+	"catalog": {
+        "list": "#volumes",
+        "orderBy": 0,
+        "booklet": {
+            "name": ".volume@match->(?<=])(.+)(?=共[0-9]+章)",
+            "list": "li"
+        },
+        "name": "#volumes > li > a > span",
+        "chapter": "#volumes > li > a"
+    },
+	
+	"chapter": {
+        "content": "#chapterContent > section > p"
+    }
+}
